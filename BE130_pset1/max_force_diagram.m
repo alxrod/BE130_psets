@@ -27,7 +27,7 @@ for i = 1:length(x_ar)
         %If sin evals to 1, TMAX/L1*SIN always > TMAX/L2*SIN since L2>l1
         op = TMAX / L2;
 
-        phi = theta2 + (pi/4);
+        phi = theta2 + (pi/2);
 
 
         deltax = op*cos(phi);

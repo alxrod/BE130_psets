@@ -6,9 +6,9 @@ set (fig, 'WindowButtonMotionFcn', @(obj,event)mousemovedetected());   % "mousem
 L1=1.2;   L2=1.1;   TMAX=1;
 redline  = plot([0 0],[1 0],'r','linewidth',7); hold on;  % create the red line for L1 that will be continuously repositioned based on the mouse cursor
 blueline = plot([0 0],[1 0],'b','linewidth',5); 
-f_points = plot([0],[1],'.','MarkerSize',5);
-xlim([-2 2]); ylim([-2 2]);
-phi_set = linspace(0,2*pi,50);
+f_points = plot([0],[1],'.','MarkerSize',10);
+xlim([-4 4]); ylim([-4 4]);
+phi_set = linspace(0,2*pi,100);
 % linspace
 xlabel('x-position')
 ylabel('y-position')
@@ -30,20 +30,20 @@ ylabel('y-position')
         
             force_points = {}
             for p = 1:length(phi_set)
-                val1 = abs(TMAX/L1*sin(p - theta1))
-                val2 = abs(TMAX/L2*sin(p - theta2))
+                val1 = abs(TMAX/ (L1*sin(phi_set(p) - theta1)) );
+                val2 = abs(TMAX/ (L2*sin(phi_set(p) - theta2)) );
                 
-                mag = min([val1, val2])
-                fprintf("min %i\n", mag)
+                mag = min([val1, val2]);
+%                 fprintf("min %i\n", mag)
 %                 mag=1
 
-                deltax = mag*cos(p);
-                deltay = mag*sin(p);
+                deltax = mag*cos(phi_set(p));
+                deltay = mag*sin(phi_set(p));
                    
                 p_x = l1_x+l2_x+deltax;
                 p_y = l1_y+l2_y+deltay;
 
-                force_points{end+1} = [p_x p_y]
+                force_points{end+1} = [p_x p_y];
             end
 
             if isreal(theta1) & isreal(theta2),
