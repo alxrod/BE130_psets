@@ -4,10 +4,10 @@ fig=figure;  ax=gca;
 % It handles reading the current mouse position whenever movement is detected, and then redrawing the screen based on the detected position
 
 L1=1.2;   L2=1.1;   TMAX=1;
-xlim([-3.5 3.5]); ylim([-3.5 3.5]);
+xlim([-2.25 2.25]); ylim([-2.25 2.25]);
 xlabel('x-position')
-x_ar = linspace(-2,2,8);
-y_ar = linspace(-2,2,8);
+x_ar = linspace(-2,2,15);
+y_ar = linspace(-2,2,15);
 ylabel('y-position')
 fprintf("X vars: %g\n", x_ar);
 fprintf("Y vars: %g\n", y_ar);
@@ -35,7 +35,7 @@ for i = 1:length(x_ar)
         fprintf("cords: %i, %i \n", x, y);
 
         plot(x,y,'o');
-        quiver(x, y, deltax, deltay);
+        quiver(x, y, deltax, deltay,0.2,'linewidth',3, 'MaxHeadSize', 5);
  
     end
 end
