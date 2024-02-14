@@ -9,10 +9,6 @@ xlabel('x-position')
 x_ar = linspace(-2,2,15);
 y_ar = linspace(-2,2,15);
 ylabel('y-position')
-fprintf("X vars: %g\n", x_ar);
-fprintf("Y vars: %g\n", y_ar);
-      
-fprintf("%i\n", length(x_ar));
 
 hold on;
 for i = 1:length(x_ar)
@@ -32,7 +28,6 @@ for i = 1:length(x_ar)
 
         deltax = op*cos(phi);
         deltay = op*sin(phi);
-        fprintf("cords: %i, %i \n", x, y);
 
         plot(x,y,'o');
         quiver(x, y, deltax, deltay,0.2,'linewidth',3, 'MaxHeadSize', 5);
